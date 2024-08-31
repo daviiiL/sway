@@ -36,11 +36,12 @@ default_border pixel 3
 
 default_floating_border pixel 3
 
-gaps inner 5
-gaps outer 5
+#
 
-smart_borders on 
-smart_gaps on
+
+
+# smart_borders on 
+# smart_gaps on
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
@@ -74,27 +75,26 @@ smart_gaps on
 #
 # Basics:
 #
+
     # Start a terminal
     bindsym $mod+Return exec $term
 
     # Kill focused window
     bindsym $mod+q kill
 
+    # lock screen 
+    bindsym $mod+Ctrl+l exec swaylock --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --ring-color 000000 --key-hl-color f0f0f0
+
     # Start your launcher
     bindsym $mod+d exec $menu
     bindsym $mod+Space exec anyrun
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
+    bindsym $mod+Shift+c exec hyprpicker -n -a
+    #show/hide status bar
+    bindsym $mod+Shift+t exec pgrep waybar && pkill waybar || waybar & disown
+   
     floating_modifier $mod normal
-
-    # Reload the configuration file
-    bindsym $mod+Shift+c reload
-
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Exit' 'swaymsg exit'
 
     bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
     bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -190,6 +190,8 @@ smart_gaps on
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+
+  
 #
 # Resizing containers:
 #
