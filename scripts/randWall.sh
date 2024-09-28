@@ -9,4 +9,4 @@ randInd=$((RANDOM % ${#wall_arr[@]}))
 randWall="${wall_arr[$randInd]}"
 swww img "$randWall" --transition-type center --transition-step 60 --transition-fps 120
 sleep 1
-${wal_path} -i "$randWall"
+${wal_path} -i "$randWall" --backend colorz
