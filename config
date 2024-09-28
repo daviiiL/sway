@@ -8,6 +8,7 @@ output DP-2 mode 3840x2160@120Hz scale 2 pos 2560 344
 
 # autorun
 
+exec ags
 exec waybar
 # start wallpaper engine 
 exec swww-daemon
@@ -26,6 +27,8 @@ set $right l
 set $term foot
 
 # swayconfig (swayfx)
+
+xwayland enable
 
 client.focused $color1 $background $foreground $color7 $background
 # class                  border  backgr.       text         indicator  child_border
