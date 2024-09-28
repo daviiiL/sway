@@ -1,10 +1,11 @@
 # monitor 
 
 output HDMI-A-1 mode 3840x2160@120Hz scale 1.5 pos 0 0 
-output DP-1 mode 3840x2160@120Hz scale 2 pos 2560 244
+output DP-2 mode 3840x2160@120Hz scale 2 pos 2560 344
 
 # autorun
 
+    exec waybar
     # start wallpaper engine 
     exec swww-daemon
     # restore pywal cached colorscheme
@@ -25,13 +26,18 @@ set $menu dmenu_path | wmenu | xargs swaymsg exec --
 default_border pixel 3
 default_floating_border pixel 3
 
-smart_borders on 
-smart_gaps on
+layer_effects "waybar" blur enable; shadows enable; corner_radius 6
+
+gaps inner 5
+gaps outer 5
+
+corner_radius 5
 
 ### Key bindings
 #
 # Basics:
 #   
+    bindsym $mod+w exec firefox
     # Start a terminal
     bindsym $mod+Return exec $term
 
@@ -124,7 +130,7 @@ smart_gaps on
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
+    bindsym $mod+t layout tabbed
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
