@@ -52,15 +52,16 @@ gaps outer 5
 corner_radius 5
 
 ## Keybinds
-# essentials  
+# essentials 
+    
     bindsym $mod+w exec firefox
     bindsym $mod+Return exec $term
     bindsym $mod+q kill
-    bindsym $mod+Ctrl+l exec swaylock --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --ring-color 000000 --key-hl-color f0f0f0
     bindsym $mod+Space exec anyrun
     bindsym $mod+Shift+c exec hyprpicker -n -a
     bindsym $mod+Shift+t exec pgrep waybar && pkill waybar || waybar & disown
     bindsym ctrl+$mod+t exec $HOME/.config/sway/scripts/randWall.sh > $HOME/allout.txt 2>&1
+    bindsym ctrl+$mod+l exec hyprlock
     floating_modifier $mod normal
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Exit' 'swaymsg exit'
 # for laptops
