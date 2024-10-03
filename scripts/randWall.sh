@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-# find command paths 
+# find command paths
 wal_path=$(which wal)
 pywalfox_path=$(which pywalfox)
 
@@ -18,3 +18,6 @@ ${wal_path} -i "$random_wallpaper" --backend wall
 sleep 0.1
 
 ${pywalfox_path} update
+# swaymsg reload
+killall waybar
+waybar & disown
