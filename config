@@ -1,16 +1,15 @@
-# imports 
+# imports
 include "$HOME/.cache/wal/colors-sway"
 
-# monitor 
+# monitor
 
-output HDMI-A-1 mode 3840x2160@120Hz scale 1.5 pos 0 0
-output DP-2 mode 3840x2160@120Hz scale 2 pos 2560 344
+output eDP-1 mode 2880x1920@120Hz pos 0 0 scale 2
 
 # autorun
-
+exec autotiling-rs
 exec ags
 exec waybar
-# start wallpaper engine 
+# start wallpaper engine
 exec swww-daemon
 # restore pywal cached colorscheme
 exec wall -R
@@ -44,7 +43,7 @@ client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 default_border pixel 3
 default_floating_border pixel 3
 
-layer_effects "waybar" blur enable; shadows enable; corner_radius 6
+# layer_effects "waybar" blur enable; shadows enable; corner_radius 6
 
 gaps inner 5
 gaps outer 5
@@ -52,8 +51,8 @@ gaps outer 5
 corner_radius 5
 
 ## Keybinds
-# essentials 
-    
+# essentials
+
     bindsym $mod+w exec firefox
     bindsym $mod+Return exec $term
     bindsym $mod+q kill
@@ -68,13 +67,16 @@ corner_radius 5
     bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
     bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
     bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-    bindsym --locked XF86MonBrightnessUp exec brightnessctl s +5%
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl s 5%-
+    bindsym XF86MonBrightnessUp exec brillo -A 5
+    bindsym XF86MonBrightnessDown exec brillo -U 5
     bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-    bindswitch --reload lid:on exec swaylock && output eDP-1 disable && systemctl suspend
+    bindswitch --reload lid:on exec hyprlock && output eDP-1 disable && systemctl suspend
     bindswitch --reload lid:off exec output eDP-1 enable
     bindsym $mod+ctrl+r reload
+
+    bindgesture swipe:right workspace prev
+    bindgesture swipe:left workspace next
 # workspace related
     # Move your focus around
     bindsym $mod+$left focus left
@@ -120,7 +122,7 @@ corner_radius 5
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
 
-# layout    
+# layout
     bindsym $mod+b splith
     bindsym $mod+v splitv
 
@@ -151,5 +153,11 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+
+input "2362:628:PIXA3854:00_093A:0274_Touchpad" {
+  dwt enabled
+  tap enabled
+  natural_scroll enabled
+}
 
 include /etc/sway/config.d/*
