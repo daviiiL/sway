@@ -1,5 +1,5 @@
 # imports
-include "$HOME/.cache/wal/colors-sway"
+include "./colors"
 
 # monitor
 
@@ -11,8 +11,6 @@ exec ags
 exec waybar
 # start wallpaper engine
 exec swww-daemon
-# restore pywal cached colorscheme
-exec wall -R
 # restore last selected wallpaper with swww
 exec swww restore
 

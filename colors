@@ -1,0 +1,21 @@
+set $wallpaper /home/demo/Pictures/wallpapers/pywal_wall/acrylic.jpg
+
+set $background #040404
+set $foreground #E1E1ED
+
+set $color0 #333332
+set $color1 #3D3D3B
+set $color2 #5E485D
+set $color3 #3B6098
+set $color4 #946BAB
+set $color5 #3184AF
+set $color6 #7F7F98
+set $color7 #CCCCDD
+set $color8 #8F8E9A
+set $color9 #3E3E3B
+set $color10 #6A4D69
+set $color11 #3C6DB7
+set $color12 #A15EC6
+set $color13 #028AD1
+set $color14 #AAA9CB
+set $color15 #CCCCDD
