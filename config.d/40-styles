@@ -4,9 +4,9 @@
 # Window: border, background, text, indicator, child_border
 
 #Windows                 #border  #background  #text    #indicator  #child_border
-client.focused           #004f54  #004f54  #9df0f8  #004f54  #004f54 
+client.focused           #00363a  #004f54  #9df0f8  #00363a  #00363a
 client.unfocused         #004f54  #0e1415  #1b3436  #324b4d  #b1cbce
-client.focused_inactive  #80d4db  #9df0f8  #0e1415 
+client.focused_inactive  #80d4db  #9df0f8  #0e1415
 client.placeholder       #000000  #000000  #dde4e4
 client.urgent            #b7c7ea  #374764  #21304c
 # client.background        #0e1415

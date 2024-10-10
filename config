@@ -1,3 +1,7 @@
+# source matugen colors
+
+include $HOME/.config/sway/sway-colors
+
 # monitor
 
 output eDP-1 mode 2880x1920@120Hz pos 0 0 scale 2
@@ -23,14 +27,13 @@ set $term kitty
 # swayconfig (swayfx)
 xwayland enable
 
-# # class                  border  backgr.       text         indicator  child_border
-# client.focused           $color2 $background   $foreground  $color7    $color1
-# client.focused_inactive  $color0 $background   $foreground  $color7    $color0
-# client.unfocused         $color0 $background   $foreground  $color7    $color0
-#
-# client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-# client.urgent           #2f343a #900000 #ffffff #900000   #900000
-# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+# class                  border  backgr.       text         indicator  child_border
+client.focused           $active_border  $background   $foreground  $active_indicator    $active_border
+client.focused_inactive  $inactive_border   $background   $foreground  $inactive_border    $inactive_border
+client.unfocused         $inactive_border   $background   $foreground  $inactive_border    $inactive_border
+
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 
 default_border pixel 3
@@ -53,7 +56,7 @@ corner_radius 5
     bindsym $mod+Space exec anyrun
     bindsym $mod+Shift+c exec hyprpicker -n -a
     bindsym $mod+Shift+t exec pgrep waybar && pkill waybar || waybar & disown
-    # bindsym ctrl+$mod+t exec $HOME/.config/sway/scripts/randWall.sh > $HOME/allout.txt 2>&1
+    bindsym ctrl+$mod+t exec $HOME/.config/sway/scripts/randWall.sh > $HOME/allout.txt 2>&1
     bindsym ctrl+$mod+l exec hyprlock
     floating_modifier $mod normal
     bindsym $mod+Shift+e exec swaynag -t warning -m 'Exiting sway. Bye!' -B 'Exit' 'swaymsg exit'

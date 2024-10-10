@@ -1,0 +1,6 @@
+set $background #0e1415
+set $foreground #dde4e4
+set $active_indicator #80d4db
+set $active_border #00363a
+set $inactive_border #0e1415
+
