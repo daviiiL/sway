@@ -19,5 +19,10 @@ matugen image $random_wallpaper
 
 # ${pywalfox_path} update
 # swaymsg reload
+sleep 0.1
+swaymsg reload
+
 killall waybar
 waybar & disown
+
+

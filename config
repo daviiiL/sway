@@ -60,6 +60,7 @@ corner_radius 5
     bindsym ctrl+$mod+l exec hyprlock
     floating_modifier $mod normal
     bindsym $mod+Shift+e exec swaynag -t warning -m 'Exiting sway. Bye!' -B 'Exit' 'swaymsg exit'
+    bindsym ctrl+$mod+i exec $HOME/.config/sway/scripts/plog.sh
 # for laptops
     bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
     bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+
@@ -68,7 +69,7 @@ corner_radius 5
     bindsym XF86MonBrightnessDown exec brillo -q -U 5 -u 300000
     bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-    bindswitch --reload --locked lid:on exec hyprlock && output eDP-1 disable && systemctl suspend
+    bindswitch --reload --locked lid:on exec hyprlock && systemctl suspend && output eDP-1 disable
     bindswitch --reload --locked lid:off exec output eDP-1 enable
     bindsym $mod+ctrl+r reload
 
@@ -157,4 +158,3 @@ input "2362:628:PIXA3854:00_093A:0274_Touchpad" {
   natural_scroll enabled
 }
 
-include /etc/sway/config.d/*
