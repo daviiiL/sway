@@ -1,3 +1,5 @@
+# for swayfx 
+
 ## some packages needed 
 
 > comment out lines related to wal (pywal) if not using pywal or wallust
