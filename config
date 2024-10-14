@@ -6,16 +6,10 @@ include "$HOME/.cache/wal/colors-sway"
 output HDMI-A-1 mode 3840x2160@120Hz scale 1.5 pos 0 0
 output DP-2 mode 3840x2160@120Hz scale 2 pos 2560 344
 
-# autorun
+# autostart
+exec_always --no-startup-id autotiling
 
-exec ags
-exec waybar
-# start wallpaper engine 
 exec swww-daemon
-# restore pywal cached colorscheme
-exec wall -R
-# restore last selected wallpaper with swww
-exec swww restore
 
 # variables
 
@@ -29,22 +23,23 @@ set $term foot
 # swayconfig (swayfx)
 
 xwayland enable
-
-client.focused $color1 $background $foreground $color7 $background
-# class                  border  backgr.       text         indicator  child_border
-client.focused           $color1 $background   $foreground  $color7    $color1
-client.focused_inactive  $color0 $background   $foreground  $color7    $color0
-client.unfocused         $color0 $background   $foreground  $color7    $color0
-
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-# client.urgent           #2f343a #900000 #ffffff #900000   #900000
-# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-
-
 default_border pixel 3
 default_floating_border pixel 3
+seat * xcursor_theme Adwaita 24
+# layer_effects "wofi" blur enable; shadows enable; corner_radius 6
+layer_effects "wofi"  corner_radius 10
 
-layer_effects "waybar" blur enable; shadows enable; corner_radius 6
+# workspace default monitor bindings
+workspace 1 output HDMI-A-1
+workspace 2 output HDMI-A-1
+workspace 3 output HDMI-A-1
+workspace 4 output HDMI-A-1
+workspace 5 output HDMI-A-1
+workspace 6 output DP-2
+workspace 7 output DP-2
+workspace 8 output DP-2
+workspace 9 output DP-2
+workspace 10 output DP-2
 
 gaps inner 5
 gaps outer 5
@@ -57,12 +52,12 @@ corner_radius 5
     bindsym $mod+w exec firefox
     bindsym $mod+Return exec $term
     bindsym $mod+q kill
-    bindsym $mod+Space exec anyrun
+    bindsym $mod+Space exec wofi --show drun || pkill wofi
     bindsym $mod+Shift+c exec hyprpicker -n -a
     bindsym $mod+Shift+t exec pgrep waybar && pkill waybar || waybar & disown
     bindsym ctrl+$mod+t exec $HOME/.config/sway/scripts/randWall.sh > $HOME/allout.txt 2>&1
     bindsym ctrl+$mod+l exec hyprlock
-    floating_modifier $mod normal
+    # floating_modifier $mod normal
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Exit' 'swaymsg exit'
 # for laptops
     bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
