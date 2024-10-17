@@ -69,6 +69,9 @@ corner_radius 5
     bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%-
     bindsym XF86MonBrightnessUp exec brillo -q -A 5 -u 300000
     bindsym XF86MonBrightnessDown exec brillo -q -U 5 -u 300000
+    bindsym XF86AudioPlay exec playerctl play-pause
+    bindsym XF86AudioPrev exec playerctl previous
+    bindsym XF86AudioNext exec playerctl next
     bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
     bindswitch --reload --locked lid:on exec hyprlock
