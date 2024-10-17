@@ -15,7 +15,7 @@ exec swww-daemon
 # restore last selected wallpaper with swww
 exec swww restore
 exec wl-paste --watch cliphist store
-exec cliphist list | wofi --show dmenu | cliphist decode | wl-copy
+
 # variables
 
 set $mod Mod4
@@ -57,6 +57,7 @@ corner_radius 5
     bindsym $mod+Space exec anyrun
     bindsym $mod+Shift+c exec hyprpicker -n -a
     bindsym $mod+Shift+t exec pgrep waybar && pkill waybar || waybar & disown
+    bindsym $mod+v exec cliphist list | wofi --show dmenu | cliphist decode | wl-copy
     bindsym ctrl+$mod+t exec $HOME/.config/sway/scripts/randWall.sh > $HOME/allout.txt 2>&1
     bindsym ctrl+$mod+l exec hyprlock
     floating_modifier $mod normal
@@ -122,9 +123,6 @@ corner_radius 5
     bindsym $mod+Shift+0 move container to workspace number 10
 
 # layout
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
-
     bindsym $mod+s layout stacking
     bindsym $mod+t layout tabbed
     bindsym $mod+e layout toggle split
