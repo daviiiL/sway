@@ -52,7 +52,6 @@ corner_radius 5
 ## Keybinds
 # essentials
 
-    bindsym $mod+w exec firefox
     bindsym $mod+Return exec $term
     bindsym $mod+q kill
     bindsym $mod+Space exec anyrun
