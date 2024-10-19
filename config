@@ -58,7 +58,8 @@ corner_radius 5
     bindsym $mod+Shift+c exec hyprpicker -n -a
     bindsym $mod+Shift+t exec pgrep waybar && pkill waybar || waybar & disown
     bindsym $mod+v exec cliphist list | wofi --show dmenu | cliphist decode | wl-copy
-    bindsym ctrl+$mod+t exec $HOME/.config/sway/scripts/randWall.sh > $HOME/allout.txt 2>&1
+    bindsym $mod+Print exec grimshot --notify --cursor save
+    bindsym $mod+Shift+Print exec grimshot --notify --cursor save area
     bindsym ctrl+$mod+l exec hyprlock
     floating_modifier $mod normal
     bindsym $mod+Shift+e exec swaynag -t warning -m 'Exiting sway. Bye!' -B 'Exit' 'swaymsg exit'
