@@ -40,9 +40,14 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 default_border pixel 1
 default_floating_border pixel 1
 
+blur enable
+blur_passes 4
+blur_radius 5
+
 # layer_effects "waybar" blur enable; shadows enable; corner_radius 6
 layer_effects "waybar" corner_radius 0;
 layer_effects "mako" blur enabled;
+layer_effects "foot" blur enabled;
 
 gaps inner 5
 gaps outer 3
