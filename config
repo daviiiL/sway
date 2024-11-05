@@ -52,7 +52,7 @@ layer_effects "foot" blur enabled;
 gaps inner 5
 gaps outer 3
 
-corner_radius 5
+corner_radius 10
 
 ## Keybinds
 # essentials
