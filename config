@@ -37,7 +37,7 @@ blur_radius 3
 #
     bindsym $mod+Return exec $term
     bindsym $mod+q kill
-    bindsym $mod+Space exec $menu
+    bindsym $mod+Space exec $menu --prompt "Applications" --fn "DepartureMono Nerd Font 14" --list 8 --tb "$background_solidreg" --tf "$primaryreg" --hb "$on_secondaryreg" --hf "$secondaryreg"
     floating_modifier $mod normal
     bindsym $mod+Shift+c reload
 
